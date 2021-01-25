@@ -10,7 +10,7 @@
  * Funktionsprototypen die nach der implentierung von main() deklariert wurden
  * damit der Compiler weiﬂ das es diese gibt und welche Eigenschaften diese Funktionen haben
  */
-int monthDayChecker(int day, int month, int days_each_month[]);
+int exists_date(int day, int month, int days_each_month[]);
 int is_leapyear(int year);
 
 int main()
@@ -39,7 +39,7 @@ int main()
         printf("Enter the month:");
         scanf("%i", &month);
     }
-    while(monthDayChecker(day,month, days_each_month));
+    while(exists_date(day,month, days_each_month));
 
 
     for(int i = 0; i < month-1; i++)
@@ -59,7 +59,7 @@ int main()
  * \return 1 if the user input is incorrect, 0 if the input is correct
  *
  */
-int monthDayChecker(int day, int month, int days_each_month[])
+int exists_date(int day, int month, int days_each_month[])
 {
     month = month -1;
     if(month < 0)
