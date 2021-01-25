@@ -10,7 +10,8 @@
  * Funktionsprototypen die nach der implentierung von main() deklariert wurden
  * damit der Compiler weiﬂ das es diese gibt und welche Eigenschaften diese Funktionen haben
  */
-int exists_date(int day, int month, int days_each_month[]);
+int get_days_for_month(int year,int year, int month, int days_each_month[]);
+int exists_date(int year,int day, int month, int days_each_month[]);
 int is_leapyear(int year);
 
 int main()
@@ -27,7 +28,9 @@ int main()
     if(leapyear == 1)
     {
         days_each_month[1] = 29;
-    } else if(leapyear == -1){
+    }
+    else if(leapyear == -1)
+    {
         printf("The year you entered is invalid. Stopping program...\n");    //force stop invalid year
         return -1;
     }
@@ -59,7 +62,7 @@ int main()
  * \return 1 if the user input is incorrect, 0 if the input is correct
  *
  */
-int exists_date(int day, int month, int days_each_month[])
+int exists_date(int year,int day, int month, int days_each_month[])
 {
     month = month -1;
     if(month < 0)
@@ -72,12 +75,30 @@ int exists_date(int day, int month, int days_each_month[])
         printf("Month cannot be greater then 12\n");
         return 1;
     }
-    if(day <= 0  || day > days_each_month[month])
+    if(day <= 0  || day > get_days_for_month(year,month,days_each_month))
     {
         printf("your chosen month has only %i days\n",days_each_month[month]);
         return 1;
     }
     return 0;
+}
+
+/**
+ * \param year, user input of year
+ * \param month, user input of year
+ * \return amount of days or -1 if something is invalid
+ */
+int get_days_for_month(int year,int year, int month, int days_each_month[])
+{
+    if(month > 12 || month < 1)
+    {
+        return -1;
+    }
+    if(year <= 0)
+    {
+        return -1;
+    }
+    return days_each_month[month];
 }
 
 /**
@@ -98,7 +119,8 @@ int is_leapyear(int year)
         {
             return 0;
         }
-    } else
+    }
+    else
     {
         return -1;
     }
