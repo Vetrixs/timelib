@@ -1,6 +1,12 @@
 # Prerequisites
 *.d
 
+#layout
+*.layout
+
+#idk
+*.depend
+
 # Object files
 *.o
 *.ko
