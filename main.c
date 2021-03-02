@@ -25,5 +25,15 @@ int main()
 
     input_date(year_pointer,month_pointer, day_pointer);
 
-    printf("Its the %i day of the year.\n",day_of_the_year(day,month,year));
+    int dayOfTheYear = day_of_the_year(day,month,year);
+    printf("Its the %i day of the year.\n", dayOfTheYear);
+
+    if (dayOfTheYear == -1)
+    {
+        printf("The given year does not exists!");
+    } else
+    {
+
+    }
+
 }

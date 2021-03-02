@@ -1,6 +1,18 @@
 
+/**
+ * calculating the day of the year since 1 January of the given year
+ *
+ *
+ * returning the days if the date exists, returns -1 if the date does not exists
+ *
+*/
 int day_of_the_year(int day, int month, int year)
 {
+    if(!exists_date(year,month,day))
+    {
+       return -1;
+    }
+
     int days = 0; // a counter to count the days
     for(int i = 1; i < month; i++)
     {
@@ -26,7 +38,7 @@ void input_date(int *year, int *month, int *day)
         printf("Enter the month:");
         scanf("%i", month);
     }
-    while(exists_date(*year,*month,*day));
+    while(!exists_date(*year,*month,*day));
 }
 
 /**
@@ -34,27 +46,24 @@ void input_date(int *year, int *month, int *day)
  * \param day, user input of days
  * \param month, user input of month
  * \param day_each_month, the amount of days each month
- * \return 1 if the user input is incorrect, 0 if the input is correct
+ * \return 0 if the user input is incorrect, 1 if the input is correct
  *
  */
 int exists_date(int year, int month, int day)
 {
     if(month < 0)
     {
-        printf("Month cannot be less then 0 or  be 0\n");
-        return 1;
+        return 0;
     }
     if(month > 12)
     {
-        printf("Month cannot be greater then 12\n");
-        return 1;
+        return 0;
     }
     if(day <= 0  || day > get_days_for_month(year, month))
     {
-        printf("your chosen month has only %i days\n",get_days_for_month(year, month));
-        return 1;
+        return 0;
     }
-    return 0;
+    return 1;
 }
 
 /**
@@ -74,7 +83,6 @@ int get_days_for_month(int year, int month)
     }
     else if(leapyear == -1)
     {
-        printf("The year you entered is invalid. Stopping program...\n");    //force stop invalid year
         return -1;
     }
 
