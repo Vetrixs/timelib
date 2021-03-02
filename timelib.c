@@ -2,7 +2,7 @@
 int day_of_the_year(int day, int month, int year)
 {
     int days = 0; // a counter to count the days
-    for(int i = 0; i < month; i++)
+    for(int i = 1; i < month; i++)
     {
         days += get_days_for_month(year, i);
     }
