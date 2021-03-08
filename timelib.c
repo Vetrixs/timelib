@@ -16,7 +16,7 @@ int day_of_the_year(int day, int month, int year)
     int days = 0; // a counter to count the days
     for(int i = 1; i < month; i++)
     {
-        days += get_days_for_month(year, i);
+        days += get_days_for_month(year, i);    // calculates the days
     }
     return days += day;
 }
@@ -73,13 +73,13 @@ int exists_date(int year, int month, int day)
  */
 int get_days_for_month(int year, int month)
 {
-    int days_each_month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    int days_each_month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};    // the array of the months
 
     int leapyear = is_leapyear(year);
 
     if(leapyear == 1)
     {
-        days_each_month[1] = 29;
+        days_each_month[1] = 29; // sets the 2 Months on 29 days if its a leapyear
     }
     else if(leapyear == -1)
     {
@@ -88,11 +88,11 @@ int get_days_for_month(int year, int month)
 
     if(month > 12 || month < 1)
     {
-        return -1;
+        return -1; // invalid month
     }
     if(year <= 0)
     {
-        return -1;
+        return -1; //invalid year
     }
     return days_each_month[month];
 }
