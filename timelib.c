@@ -43,8 +43,8 @@ void input_date(int *year, int *month, int *day)
 
 /**
  *
- * \param day, user input of days
- * \param month, user input of month
+* \param day, user input of days
+* \param month, user input of month
  * \param day_each_month, the amount of days each month
  * \return 0 if the user input is incorrect, 1 if the input is correct
  *

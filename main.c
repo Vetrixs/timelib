@@ -31,7 +31,8 @@ int main()
     if (dayOfTheYear == -1)
     {
         printf("The given year does not exists!");
-    } else
+    }
+    else
     {
 
     }
