@@ -6,12 +6,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "timelib.h"
-/**
- * Funktionsprototypen die nach der implentierung von main() deklariert wurden
- * damit der Compiler weiﬂ das es diese gibt und welche Eigenschaften diese Funktionen haben
- */
-
-
 
 int main()
 {
